@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
+
+using Quobject.SocketIoClientDotNet.Client;
+
+namespace Pisicu{
+
+    public class ScreenController{
+        
+        public static Screen SCREEN = Screen.HOME; 
+
+        public static List<Button> buttons = new List<Button>();
+        public static List<TextBox> textboxes = new List<TextBox>();
+        public static List<InputBox> inputboxes = new List<InputBox>();
+
+        public static ScreenHome screen_home;
+        public static ScreenLoad screen_load;
+        public static ScreenGame screen_game;
+        public static ScreenFinish screen_finish;
+        public static ScreenLogin screen_login;
+
+        public static string[] question = {"Cuando nacio Albert Einstein","1920","1921","1910"};
+
+        public void draw(SpriteBatch sb){
+
+            if (SCREEN == Screen.HOME) {
+                screen_home.draw(sb);
+            }else if (SCREEN == Screen.GAME) {
+                screen_game.draw(sb);
+            }else if(SCREEN == Screen.LOAD) {
+                screen_load.draw(sb);
+            }else if(SCREEN == Screen.FINISH) {
+                screen_finish.draw(sb);
+            }else if(SCREEN == Screen.LOGIN) {
+                screen_login.draw(sb);
+            }
+
+            foreach(Button b in buttons){
+                b.draw(sb);
+            }
+
+            foreach(TextBox tbox in textboxes){
+                tbox.draw(sb);
+            }
+
+            foreach(InputBox ibox in inputboxes) {
+                ibox.draw(sb);
+            }
+        }
+
+        public void update(ref Socket ws){
+            
+            TouchCollection touch = TouchPanel.GetState();
+
+            if (touch.Count > 0){
+
+                float tx = touch[0].Position.X;
+                float ty = touch[0].Position.Y;
+
+                if (touch[0].State == TouchLocationState.Pressed){
+                    
+                    foreach(Button b in buttons){
+
+                        if (tx > b.x && tx < b.x + b.w && ty > b.y && ty < b.y + b.h){
+                            b.touch = true;
+                        }else {
+                            b.touch = false;
+                        }
+                    }
+
+                    foreach(InputBox b in inputboxes){
+
+                        if (tx > b.x && tx < b.x + b.w && ty > b.y && ty < b.y + b.h){
+                            b.touch = true;
+                        }else {
+                            b.touch = false;
+                        }
+                    }
+
+                }else if(touch[0].State == TouchLocationState.Released){
+                    
+                    foreach(Button b in buttons){
+                        b.touch = false;
+                    }  
+                    
+                    foreach(InputBox b in inputboxes){
+                        b.touch = false;
+                    }                 
+                }
+            }
+
+            if(SCREEN == Screen.HOME) {
+                screen_home.update();
+            }else if (SCREEN == Screen.GAME) {
+                screen_game.update(ref ws);
+            }else if(SCREEN == Screen.LOAD) {
+                screen_load.update(ref ws);
+            }else if(SCREEN == Screen.FINISH) {
+                screen_finish.update();
+            }else if(SCREEN == Screen.LOGIN) {
+                screen_login.update(ref ws);
+            }
+        }
+
+        public static void setQuestion(params string[] q) {
+
+            question = new string[]{q[0], q[1], q[2], q[3]};
+        }
+
+        public static void set(Screen SCREEN){
+            buttons.Clear();
+            textboxes.Clear();
+            inputboxes.Clear();
+            //buttons = new List<Button>();
+            //textboxes = new List<TextBox>();
+            //inputboxes = new List<InputBox>();
+
+            if(SCREEN == Screen.HOME) {
+                screen_home = new ScreenHome();
+            }else if(SCREEN == Screen.GAME) {
+                screen_game = new ScreenGame(question[0], question[1], question[2], question[3]);
+            }else if(SCREEN == Screen.LOAD) {
+                screen_load = new ScreenLoad();
+            }else if(SCREEN == Screen.FINISH) {
+                screen_finish = new ScreenFinish();
+            }else if(SCREEN == Screen.LOGIN) {
+                screen_login = new ScreenLogin();
+            }
+
+            ScreenController.SCREEN = SCREEN;
+        }
+    }
+}
