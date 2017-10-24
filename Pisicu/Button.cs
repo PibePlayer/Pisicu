@@ -66,9 +66,15 @@ namespace Pisicu{
             return this;
         }
 
+        public Button setColor(Color color) {
+            
+            this.color = color;
+            return this;
+        }
+
         public void draw(SpriteBatch sb) {
 
-            color = (touch) ? new Color(06, 168, 136) : new Color(26, 188, 156);
+            color = (touch) ? new Color(color.R, color.G, color.B) : color;
 
             block.draw(sb, x, y, w, h, rad, color);
             text.draw(sb);

@@ -28,7 +28,7 @@ namespace Pisicu{
 
         public float rad;
 
-        Color color;
+        public Color color;
 
         public bool touch;
 
@@ -54,6 +54,12 @@ namespace Pisicu{
 
             text = new Text(str,x + 20,y + 20);
             block = new Block();
+        }
+
+        public InputBox setColor(Color color) {
+            
+             this.color = color;
+             return this;
         }
 
         public InputBox centerX() {

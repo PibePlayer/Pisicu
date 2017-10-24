@@ -59,6 +59,12 @@ namespace Pisicu{
             return this;
         }
 
+        public TextBox setColor(Color color) {
+            
+             this.color = color;
+             return this;
+        }
+
         public TextBox centerX() {
 
             x = (Game1.WIDTH - w) / 2;

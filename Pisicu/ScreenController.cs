@@ -120,13 +120,23 @@ namespace Pisicu{
             question = new string[]{q[0], q[1], q[2], q[3]};
         }
 
+        public static void add(Button b) {
+            buttons.Add(b);
+        }
+
+        public static void add(TextBox tb) {
+            textboxes.Add(tb);
+        }
+
+        public static void add(InputBox ib) {
+            inputboxes.Add(ib);
+        }
+
         public static void set(Screen SCREEN){
+
             buttons.Clear();
             textboxes.Clear();
             inputboxes.Clear();
-            //buttons = new List<Button>();
-            //textboxes = new List<TextBox>();
-            //inputboxes = new List<InputBox>();
 
             if(SCREEN == Screen.HOME) {
                 screen_home = new ScreenHome();

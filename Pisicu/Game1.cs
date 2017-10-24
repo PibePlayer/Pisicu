@@ -30,6 +30,11 @@ namespace Pisicu{
         public static Texture2D corner_solid_ur;
         public static Texture2D corner_solid_dr;
         public static Texture2D corner_solid_dl;
+
+        public static Texture2D corner_ul;
+        public static Texture2D corner_ur;
+        public static Texture2D corner_dr;
+        public static Texture2D corner_dl;
         
         public static string output = "-";
 
@@ -67,7 +72,7 @@ namespace Pisicu{
         protected override void LoadContent() {
 
             IO.Options op = new IO.Options(){AutoConnect = false};
-            ws = IO.Socket("http://127.0.0.1:8080", op);
+            ws = IO.Socket("http://192.168.43.125:8080", op);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -78,6 +83,11 @@ namespace Pisicu{
             corner_solid_ur = Content.Load<Texture2D>("corner_solid_ur");
             corner_solid_dr = Content.Load<Texture2D>("corner_solid_dr");
             corner_solid_dl = Content.Load<Texture2D>("corner_solid_dl");
+
+            corner_ul = Content.Load<Texture2D>("corner_ul");
+            corner_ur = Content.Load<Texture2D>("corner_ur");
+            corner_dr = Content.Load<Texture2D>("corner_dr");
+            corner_dl = Content.Load<Texture2D>("corner_dl");
 
             /*****************I'M GOING TO BUILD A WALL, AND MEXICO WILL PAY FOR IT*******************/
 
