@@ -98,6 +98,14 @@
     <AndroidAsset Include="Content\font.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidAsset>
+    <AndroidAsset Include="Content\corner_dl.xnb" />
+    <AndroidAsset Include="Content\corner_dr.xnb" />
+    <AndroidAsset Include="Content\corner_solid_dl.xnb" />
+    <AndroidAsset Include="Content\corner_solid_dr.xnb" />
+    <AndroidAsset Include="Content\corner_solid_ul.xnb" />
+    <AndroidAsset Include="Content\corner_solid_ur.xnb" />
+    <AndroidAsset Include="Content\corner_ul.xnb" />
+    <AndroidAsset Include="Content\corner_ur.xnb" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

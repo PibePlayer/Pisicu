@@ -22,7 +22,9 @@ namespace Pisicu{
         public float x;
         public float y;
 
-        public Text(string str,float x,float y){
+        public float scale = Game1.HEIGHT / 1000;
+
+        public Text(string str, float x, float y){
             
             this.str = str;
 
@@ -31,7 +33,7 @@ namespace Pisicu{
         }
 
         public void draw(SpriteBatch sb){
-            sb.DrawString(Game1.font,str,new Vector2(x,y),Color.White);
+            sb.DrawString(Game1.font, str,new Vector2(x,y), Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
         }
     }
 }

@@ -28,10 +28,10 @@ namespace Pisicu{
 
         public ScreenLogin() {
 
-            login = new Button("LOGIN", 0, 0.7f, 0.7f, 0.1f).centerX().setRadius(30, true, true, true, true);
+            login = new Button("LOGIN", 0, 0.7f, 0.7f, 0.1f).centerX().setRadius(50, true, true, true, true);
 
-            user = new InputBox(0, 0.3f, 0.7f, 0.1f, "Username").centerX().setRadius(50, true, true, true, true);
-            pass = new InputBox(0, 0.45f, 0.7f, 0.1f, "Password").centerX();
+            user = new InputBox(0, 0.3f, 0.7f, 0.1f, "Username").centerX().setRadius(30, true, true, true, true);
+            pass = new InputBox(0, 0.45f, 0.7f, 0.1f, "Password").centerX().setRadius(30, false, true, false, true);
 
             ScreenController.buttons.Add(login);
             ScreenController.inputboxes.Add(user);

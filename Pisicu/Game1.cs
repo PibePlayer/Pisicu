@@ -26,6 +26,11 @@ namespace Pisicu{
         public static SpriteFont font;
         public static Texture2D point;
 
+        public static Texture2D corner_solid_ul;
+        public static Texture2D corner_solid_ur;
+        public static Texture2D corner_solid_dr;
+        public static Texture2D corner_solid_dl;
+        
         public static string output = "-";
 
         ScreenController sc;
@@ -68,6 +73,13 @@ namespace Pisicu{
 
             font = Content.Load<SpriteFont>("font");
             point = createTexture(1, 1);
+            
+            corner_solid_ul = Content.Load<Texture2D>("corner_solid_ul");
+            corner_solid_ur = Content.Load<Texture2D>("corner_solid_ur");
+            corner_solid_dr = Content.Load<Texture2D>("corner_solid_dr");
+            corner_solid_dl = Content.Load<Texture2D>("corner_solid_dl");
+
+            /*****************I'M GOING TO BUILD A WALL, AND MEXICO WILL PAY FOR IT*******************/
 
             ws.On(Socket.EVENT_CONNECT, () => {
                 output = "Connected";

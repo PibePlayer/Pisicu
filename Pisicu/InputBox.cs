@@ -26,6 +26,8 @@ namespace Pisicu{
         public float w;
         public float h;
 
+        public float rad;
+
         Color color;
 
         public bool touch;
@@ -46,20 +48,18 @@ namespace Pisicu{
             this.w = Game1.WIDTH * w;
             this.h = Game1.HEIGHT * h;
 
-            color = new Color(52, 73, 94);
+            color = ColorBank.midnightblue;
 
             this.label = label;
+
             text = new Text(str,x + 20,y + 20);
-            block = new Block(x, y, w, h, color);
+            block = new Block();
         }
 
         public InputBox centerX() {
 
             x = (Game1.WIDTH - w) / 2;
-
             centerText();
-
-            block = new Block(x, y, w, h, color);
 
             return this;
         }
@@ -67,21 +67,21 @@ namespace Pisicu{
         public InputBox centerY() {
 
             y = (Game1.HEIGHT - h) / 2;
-
             centerText();
-
-            block = new Block(x, y, w, h, color);
 
             return this;
         }
 
         public InputBox setRadius(int rad, Boolean ul, Boolean ur, Boolean dr, Boolean dl){
 
-            block.setRadius(rad, ul, ur, dr, dl);
+            this.rad = rad;
+
+            block.setCorners(ul, ur, dr, dl);
             return this;
         }
 
         public void centerText() {
+
             float xx = x + (w - Game1.font.MeasureString(str).X) / 2;
             float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
 
@@ -92,7 +92,7 @@ namespace Pisicu{
 
             update();
 
-            block.draw(sb);
+            block.draw(sb,x,y,w,h,rad,color);
 
             text.draw(sb);
         }
@@ -109,7 +109,6 @@ namespace Pisicu{
                 str = (kb.IsCompleted) ? kb.Result ?? str : str;
                 centerText();
                 text.str = (label != "Password") ? str : new StringBuilder().Append('*', str.Length).ToString();
-
             }
         }
 

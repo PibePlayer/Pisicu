@@ -47,7 +47,7 @@ namespace Pisicu{
             this.w = Game1.WIDTH * w;
             this.h = Game1.HEIGHT * h;
 
-            color = new Color(26, 188, 156);
+            color = ColorBank.turquoise;
 
             this.str = str;
 
@@ -55,12 +55,14 @@ namespace Pisicu{
             float yy = y + 10;
 
             text = new Text(str, xx, yy);
-            block = new Block(x, y, w, h, color);
+            block = new Block();
         }
 
         public Button setRadius(int rad,Boolean ul,Boolean ur,Boolean dr,Boolean dl) {
+            
+            this.rad = rad;
 
-            block.setRadius(rad, ul, ur, dr, dl);
+            block.setCorners(ul, ur, dr, dl);
             return this;
         }
 
@@ -68,7 +70,7 @@ namespace Pisicu{
 
             color = (touch) ? new Color(06, 168, 136) : new Color(26, 188, 156);
 
-            block.draw(sb);
+            block.draw(sb, x, y, w, h, rad, color);
             text.draw(sb);
         }
 
@@ -76,11 +78,10 @@ namespace Pisicu{
 
             x = (Game1.WIDTH - w) / 2;
 
-            float xx = x + (w - Game1.font.MeasureString(str).X) / 2;
-            float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
+            float xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
+            float yy = y + (h - Game1.font.MeasureString(str).Y * text.scale) / 2;
 
             text = new Text(str, xx, yy);
-            block = new Block(x, y, w, h, color);
 
             return this;
         }
@@ -93,7 +94,6 @@ namespace Pisicu{
             float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
 
             text = new Text(str, xx, yy);
-            block = new Block(x, y, w, h, color);
 
             return this;
         }

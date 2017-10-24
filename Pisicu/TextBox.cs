@@ -25,12 +25,13 @@ namespace Pisicu{
         public float w;
         public float h;
 
+        public float rad;
+
         public Text text;
-
-        public Color color;
-
         public Block block;
 
+        public Color color;
+        
         public TextBox(string str, float x, float y, float w, float h){
             
             this.str = str;
@@ -47,12 +48,14 @@ namespace Pisicu{
             text = new Text(str, xx, yy);
 
             color = new Color(52, 73, 94);
-            block = new Block(x, y, w, h, color);
+            block = new Block();
         }
 
         public TextBox setRadius(int rad, bool ul, bool ur, bool dr, bool dl){
 
-            block.setRadius(rad, ul, ur, dr, dl);
+            this.rad = rad;
+
+            block.setCorners(ul, ur, dr, dl);
             return this;
         }
 
@@ -64,7 +67,6 @@ namespace Pisicu{
             float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
 
             text = new Text(str, xx, yy);
-            block = new Block(x, y, w, h, color);
 
             return this;
         }
@@ -77,14 +79,13 @@ namespace Pisicu{
             float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
 
             text = new Text(str, xx, yy);
-            block = new Block(x, y, w, h, color);
 
             return this;
         }
 
         public void draw(SpriteBatch sb){
 
-            block.draw(sb);
+            block.draw(sb, x, y, w, h, rad, color);
 
             text.draw(sb);
         }
