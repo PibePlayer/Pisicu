@@ -82,8 +82,8 @@ namespace Pisicu{
 
         public void centerText() {
 
-            float xx = x + (w - Game1.font.MeasureString(str).X) / 2;
-            float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
+            float xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
+            float yy = y + (h - Game1.font.MeasureString(str).Y * text.scale) / 2;
 
             text = new Text(str, xx, yy);
         }

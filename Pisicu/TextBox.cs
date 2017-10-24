@@ -63,10 +63,7 @@ namespace Pisicu{
 
             x = (Game1.WIDTH - w) / 2;
 
-            float xx = x + (w - Game1.font.MeasureString(str).X) / 2;
-            float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
-
-            text = new Text(str, xx, yy);
+            centerText();
 
             return this;
         }
@@ -75,12 +72,17 @@ namespace Pisicu{
 
             y = (Game1.HEIGHT - h) / 2;
 
-            float xx = x + (w - Game1.font.MeasureString(str).X) / 2;
-            float yy = y + (h - Game1.font.MeasureString(str).Y) / 2;
-
-            text = new Text(str, xx, yy);
+            centerText();
 
             return this;
+        }
+
+        public void centerText() {
+
+            float xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
+            float yy = y + (h - Game1.font.MeasureString(str).Y * text.scale) / 2;
+
+            text = new Text(str, xx, yy);
         }
 
         public void draw(SpriteBatch sb){
