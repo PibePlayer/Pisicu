@@ -72,7 +72,7 @@ namespace Pisicu{
         protected override void LoadContent() {
 
             IO.Options op = new IO.Options(){AutoConnect = false};
-            ws = IO.Socket("http://192.168.43.125:8080", op);
+            ws = IO.Socket("http://127.0.0.1:8080", op);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 

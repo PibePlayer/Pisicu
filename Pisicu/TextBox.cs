@@ -61,10 +61,10 @@ namespace Pisicu{
             return this;
         }
 
-        public TextBox setStroke(int stroke) {
+        public TextBox setStroke(int stroke,Color stroke_color) {
                     
             solid = true;
-            block.setStroke(stroke);
+            block.setStroke(stroke,stroke_color);
 
             return this;
         }

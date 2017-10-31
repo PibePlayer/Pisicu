@@ -18,6 +18,8 @@ namespace Pisicu{
 
     public class ColorBank{
 
+        public static Color undefined = new Color(255,0,255);
+
         public static Color alizarin = new Color(231, 76, 60);
         public static Color pomegranate = new Color(192, 57, 43);
         public static Color midnightblue = new Color(44, 62, 80);

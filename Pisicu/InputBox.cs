@@ -40,7 +40,7 @@ namespace Pisicu{
         Text text;
 
         public Block block;
-        public bool solid;
+        public bool solid = true;
 
         public InputBox(float x, float y, float w, float h, string label) {
 
@@ -88,10 +88,10 @@ namespace Pisicu{
             return this;
         }
 
-        public InputBox setStroke(int stroke) {
+        public InputBox setStroke(int stroke,Color stroke_color) {
             
             solid = true;
-            block.setStroke(stroke);
+            block.setStroke(stroke,stroke_color);
             return this;
         }
 

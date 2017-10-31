@@ -67,10 +67,10 @@ namespace Pisicu{
             return this;
         }
 
-        public Button setStroke(int stroke) {
+        public Button setStroke(int stroke,Color stroke_color) {
 
             solid = false;
-            block.setStroke(stroke);
+            block.setStroke(stroke,stroke_color);
 
             return this;
         }

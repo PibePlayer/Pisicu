@@ -25,7 +25,7 @@ namespace Pisicu{
 
         public ScreenLoad() {
 
-            b = new Button("...", 0, 0, 0.7f, 0.1f).centerX().centerY().setRadius(50,true,true, true, true).setStroke(4);
+            b = new Button("...", 0, 0, 0.7f, 0.1f).centerX().centerY().setRadius(50,true,true, true, true).setStroke(1,ColorBank.undefined);
 
             ScreenController.buttons.Add(b);
         }
