@@ -98,7 +98,7 @@ namespace Pisicu{
 
             update();
 
-            block.draw(sb,x,y,w,h,rad,color);
+            block.draw(sb, false,x,y,w,h,rad,color);
 
             text.draw(sb);
         }

@@ -58,11 +58,11 @@ namespace Pisicu{
             block = new Block();
         }
 
-        public Button setRadius(int rad,Boolean ul,Boolean ur,Boolean dr,Boolean dl) {
+        public Button setRadius(int rad, bool ul, bool ur, bool dr, bool dl) {
             
             this.rad = rad;
 
-            block.setCorners(ul, ur, dr, dl);
+            block.setCorners(ul, ur, dr, dl).setStroke(2);
             return this;
         }
 
@@ -76,7 +76,7 @@ namespace Pisicu{
 
             color = (touch) ? new Color(color.R, color.G, color.B) : color;
 
-            block.draw(sb, x, y, w, h, rad, color);
+            block.draw(sb, false, x, y, w, h, rad, color);
             text.draw(sb);
         }
 

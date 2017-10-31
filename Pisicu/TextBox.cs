@@ -93,7 +93,7 @@ namespace Pisicu{
 
         public void draw(SpriteBatch sb){
 
-            block.draw(sb, x, y, w, h, rad, color);
+            block.draw(sb, false, x, y, w, h, rad, color);
 
             text.draw(sb);
         }
