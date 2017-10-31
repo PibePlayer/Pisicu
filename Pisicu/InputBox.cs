@@ -34,11 +34,13 @@ namespace Pisicu{
 
         public string label;
         public string str = "";
+
         public Task<String> kb;
 
         Text text;
 
         public Block block;
+        public bool solid;
 
         public InputBox(float x, float y, float w, float h, string label) {
 
@@ -86,6 +88,13 @@ namespace Pisicu{
             return this;
         }
 
+        public InputBox setStroke(int stroke) {
+            
+            solid = true;
+            block.setStroke(stroke);
+            return this;
+        }
+
         public void centerText() {
 
             float xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
@@ -98,7 +107,7 @@ namespace Pisicu{
 
             update();
 
-            block.draw(sb, false,x,y,w,h,rad,color);
+            block.draw(sb,solid,x,y,w,h,rad,color);
 
             text.draw(sb);
         }

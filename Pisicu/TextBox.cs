@@ -30,6 +30,8 @@ namespace Pisicu{
         public Text text;
         public Block block;
 
+        public bool solid = true;
+
         public Color color;
         
         public TextBox(string str, float x, float y, float w, float h){
@@ -54,8 +56,16 @@ namespace Pisicu{
         public TextBox setRadius(int rad, bool ul, bool ur, bool dr, bool dl){
 
             this.rad = rad;
-
             block.setCorners(ul, ur, dr, dl);
+
+            return this;
+        }
+
+        public TextBox setStroke(int stroke) {
+                    
+            solid = true;
+            block.setStroke(stroke);
+
             return this;
         }
 
@@ -93,7 +103,7 @@ namespace Pisicu{
 
         public void draw(SpriteBatch sb){
 
-            block.draw(sb, false, x, y, w, h, rad, color);
+            block.draw(sb, solid, x, y, w, h, rad, color);
 
             text.draw(sb);
         }

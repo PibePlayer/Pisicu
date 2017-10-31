@@ -38,6 +38,7 @@ namespace Pisicu{
         public Text text;
 
         public Block block;
+        public bool solid = true;
 
         public Button(string str, float x, float y, float w, float h){
 
@@ -61,8 +62,16 @@ namespace Pisicu{
         public Button setRadius(int rad, bool ul, bool ur, bool dr, bool dl) {
             
             this.rad = rad;
+            block.setCorners(ul, ur, dr, dl);
 
-            block.setCorners(ul, ur, dr, dl).setStroke(2);
+            return this;
+        }
+
+        public Button setStroke(int stroke) {
+
+            solid = false;
+            block.setStroke(stroke);
+
             return this;
         }
 
@@ -76,7 +85,7 @@ namespace Pisicu{
 
             color = (touch) ? new Color(color.R, color.G, color.B) : color;
 
-            block.draw(sb, false, x, y, w, h, rad, color);
+            block.draw(sb,solid, x, y, w, h, rad, color);
             text.draw(sb);
         }
 

@@ -26,6 +26,8 @@ namespace Pisicu{
 
         public Color color;
 
+        int timer = 0;
+
         public Block setCorners(bool ul, bool ur, bool dr, bool dl) {
 
             this.ul = ul;
@@ -65,7 +67,7 @@ namespace Pisicu{
                  
             }else { //----> CORNER BLOCK 
 
-                int r = (int) (13 * rad / 190) + stroke;
+                int r = (int)((13 * rad / 190) + stroke) - 1;
 
                 sb.Draw(Game1.point, new Rectangle((int)(x + rad), (int)y, (int)(w - 2 * rad), r), color); //SOLID CENTER UP
                 sb.Draw(Game1.point, new Rectangle((int)(x + rad), (int) (y + h - r), (int)(w - 2 * rad), r), color); //SOLID CENTER DOWN
