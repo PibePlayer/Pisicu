@@ -19,7 +19,7 @@
     <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
     <MandroidI18n />
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <MonoGamePlatform>Android</MonoGamePlatform>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
@@ -95,7 +95,7 @@
     <Compile Include="TextBox.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Content\font.xnb" />
+    <AndroidAsset Include="Content\font\font.xnb" />
     <AndroidAsset Include="Content\corner_dl.xnb" />
     <AndroidAsset Include="Content\corner_dr.xnb" />
     <AndroidAsset Include="Content\corner_solid_dl.xnb" />
@@ -104,18 +104,10 @@
     <AndroidAsset Include="Content\corner_solid_ur.xnb" />
     <AndroidAsset Include="Content\corner_ul.xnb" />
     <AndroidAsset Include="Content\corner_ur.xnb" />
-    <AndroidAsset Include="Content\SourceCodePro48.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidAsset>
-    <AndroidAsset Include="Content\SourceCodePro48B.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidAsset>
-    <AndroidAsset Include="Content\SourceCodePro72.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidAsset>
-    <AndroidAsset Include="Content\SourceCodePro72B.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AndroidAsset>
+    <None Include="Content\font\SourceCodePro48.xnb" />
+    <None Include="Content\font\SourceCodePro48B.xnb" />
+    <None Include="Content\font\SourceCodePro72.xnb" />
+    <None Include="Content\font\SourceCodePro72B.xnb" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
