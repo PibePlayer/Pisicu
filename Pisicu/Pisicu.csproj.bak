@@ -19,7 +19,7 @@
     <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
     <MandroidI18n />
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <MonoGamePlatform>Android</MonoGamePlatform>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
@@ -98,6 +98,14 @@
     <AndroidAsset Include="Content\font.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidAsset>
+    <AndroidAsset Include="Content\corner_dl.xnb" />
+    <AndroidAsset Include="Content\corner_dr.xnb" />
+    <AndroidAsset Include="Content\corner_solid_dl.xnb" />
+    <AndroidAsset Include="Content\corner_solid_dr.xnb" />
+    <AndroidAsset Include="Content\corner_solid_ul.xnb" />
+    <AndroidAsset Include="Content\corner_solid_ur.xnb" />
+    <AndroidAsset Include="Content\corner_ul.xnb" />
+    <AndroidAsset Include="Content\corner_ur.xnb" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -118,7 +126,7 @@
     <AndroidResource Include="Resources\Values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

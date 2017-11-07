@@ -19,7 +19,7 @@
     <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
     <MandroidI18n />
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <MonoGamePlatform>Android</MonoGamePlatform>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
@@ -106,6 +106,10 @@
     <AndroidAsset Include="Content\corner_solid_ur.xnb" />
     <AndroidAsset Include="Content\corner_ul.xnb" />
     <AndroidAsset Include="Content\corner_ur.xnb" />
+    <None Include="Content\SourceCodePro48.spritefont" />
+    <None Include="Content\SourceCodePro48B.spritefont" />
+    <None Include="Content\SourceCodePro72.spritefont" />
+    <None Include="Content\SourceCodePro72B.spritefont" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
