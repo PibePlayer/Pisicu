@@ -34,9 +34,9 @@ namespace Pisicu{
 
             login = new Button("LOGIN", 0, 0.7f, 0.7f, 0.1f).setColor(ColorBank.alizarin).centerX().setRadius(50, true, true, true, true);
 
-            user_tbox = new TextBox("Usuario",0,0.265f,0.7f,0.035f).setColor(ColorBank.alizarin).centerX().setRadius(30,true,true,false,false);
-            pass_tbox = new TextBox("Clave",0,0.42f,0.7f,0.035f).setColor(ColorBank.alizarin).centerX().setRadius(30,true,true,false,false);
-
+            user_tbox = new TextBox("Usuario",0,0.265f,0.7f,0.035f).setColor(ColorBank.alizarin).centerX().centerText(TextBox.center.y).setRadius(30,true,true,false,false);
+            pass_tbox = new TextBox("Clave",0,0.42f,0.7f,0.035f).setColor(ColorBank.alizarin).centerX().centerText(TextBox.center.y).setRadius(30,true,true,false,false);
+ 
             user = new InputBox(0, 0.295f, 0.7f, 0.07f, "Username").centerX().setRadius(30, false, false, true, true).setStroke(6,ColorBank.alizarin);
             pass = new InputBox(0, 0.45f, 0.7f, 0.07f, "Password").centerX().setRadius(30, false, false, true, true).setStroke(6,ColorBank.alizarin);
 

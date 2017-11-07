@@ -25,7 +25,7 @@ namespace Pisicu{
 
         public ScreenGame(string q, string op1, string op2, string op3){
             
-            tbox = new TextBox(q, 0, 0.12f, 0.7f, 0.1f).centerX();
+            tbox = new TextBox(q, 0, 0.12f, 0.7f, 0.1f).centerX().centerText(TextBox.center.xy);
 
             string[] n = {op1, op2, op3};
 

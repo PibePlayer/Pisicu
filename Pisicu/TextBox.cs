@@ -16,11 +16,16 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace Pisicu{
 
     public class TextBox{
+
+        public enum center {x, y, xy};
         
         public string str;
 
         public float x;
         public float y;
+
+        public float xx { get { return text.x; } set { text = new Text(str, value, text.y); } }
+        public float yy { get { return text.y; } set { text = new Text(str, text.x, value); } }
 
         public float w;
         public float h;
@@ -44,8 +49,8 @@ namespace Pisicu{
             this.w = Game1.WIDTH * w;
             this.h = Game1.HEIGHT * h;
 
-            float xx = x + 10;
-            float yy = y + 10;
+            float xx = x * Game1.WIDTH + 30;
+            float yy = y * Game1.HEIGHT + 30;
 
             text = new Text(str, xx, yy);
 
@@ -78,8 +83,7 @@ namespace Pisicu{
         public TextBox centerX() {
 
             x = (Game1.WIDTH - w) / 2;
-
-            centerText();
+            xx += x;
 
             return this;
         }
@@ -87,18 +91,21 @@ namespace Pisicu{
         public TextBox centerY() {
 
             y = (Game1.HEIGHT - h) / 2;
-
-            centerText();
+            yy += y;
 
             return this;
         }
 
-        public void centerText() {
+        public TextBox centerText(center mode = center.xy) {
 
-            float xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
-            float yy = y + (h - Game1.font.MeasureString(str).Y * text.scale) / 2;
+            if (mode == center.x || mode == center.xy) {
+                xx = x + (w - Game1.font.MeasureString(str).X * text.scale) / 2;
+            }
+            if (mode == center.y || mode == center.xy) {
+                yy = y + (h - Game1.font.MeasureString(str).Y * text.scale) / 2;
+            }
 
-            text = new Text(str, xx, yy);
+            return this;
         }
 
         public void draw(SpriteBatch sb){

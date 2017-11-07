@@ -113,6 +113,8 @@ namespace Pisicu{
                 ScreenController.set(Screen.FINISH);
             });
 
+            /***************************************** THE WALL **************************************/
+
         }
 
         protected override void UnloadContent() {
@@ -129,7 +131,7 @@ namespace Pisicu{
 
         protected override void Draw(GameTime gameTime){
 
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(ColorBank.wetasphalt);
 
             spriteBatch.Begin();
 
