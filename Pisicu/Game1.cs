@@ -76,7 +76,7 @@ namespace Pisicu{
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            font = Content.Load<SpriteFont>("font");
+            font = Content.Load<SpriteFont>("font/SourceCodePro48SB");
             point = createTexture(1, 1);
             
             corner_solid_ul = Content.Load<Texture2D>("corner_solid_ul");

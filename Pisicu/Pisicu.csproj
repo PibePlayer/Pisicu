@@ -104,10 +104,11 @@
     <AndroidAsset Include="Content\corner_solid_ur.xnb" />
     <AndroidAsset Include="Content\corner_ul.xnb" />
     <AndroidAsset Include="Content\corner_ur.xnb" />
-    <None Include="Content\font\SourceCodePro48.xnb" />
-    <None Include="Content\font\SourceCodePro48B.xnb" />
-    <None Include="Content\font\SourceCodePro72.xnb" />
-    <None Include="Content\font\SourceCodePro72B.xnb" />
+    <AndroidAsset Include="Content\font\SourceCodePro48.xnb" />
+    <AndroidAsset Include="Content\font\SourceCodePro48B.xnb" />
+    <AndroidAsset Include="Content\font\SourceCodePro72.xnb" />
+    <AndroidAsset Include="Content\font\SourceCodePro72B.xnb" />
+    <AndroidAsset Include="Content\font\SourceCodePro48SB.xnb" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

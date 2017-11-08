@@ -22,7 +22,7 @@ namespace Pisicu{
         public float x;
         public float y;
 
-        public float scale = Game1.HEIGHT / 1000;
+        public float scale = Game1.HEIGHT / 2100;
 
         public Text(string str, float x, float y){
             

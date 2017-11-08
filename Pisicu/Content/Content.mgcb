@@ -116,31 +116,10 @@
 /processorParam:TextureFormat=Color
 /build:corner_ur.png
 
-#begin fonts/SourceCodePro48.spritefont
+#begin SourceCodePro48SB.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:fonts/SourceCodePro48.spritefont
-
-#begin fonts/SourceCodePro48B.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:fonts/SourceCodePro48B.spritefont
-
-#begin fonts/SourceCodePro72.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:fonts/SourceCodePro72.spritefont
-
-#begin fonts/SourceCodePro72B.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:fonts/SourceCodePro72B.spritefont
+/build:SourceCodePro48SB.spritefont
 
