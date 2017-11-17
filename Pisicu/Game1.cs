@@ -56,8 +56,6 @@ namespace Pisicu{
             graphics.PreferredBackBufferWidth = WIDTH;
             graphics.PreferredBackBufferHeight = HEIGHT;
 
-            graphics.SupportedOrientations = DisplayOrientation.Portrait;
-
         }
 
         protected override void Initialize() {
