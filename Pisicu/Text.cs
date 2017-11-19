@@ -30,8 +30,6 @@ namespace Pisicu{
 
             this.x = x;
             this.y = y;
-
-            Game1.output += string.Format("\nx: {0} y: {1}", x, y);
         }
 
         public void draw(SpriteBatch sb){

@@ -79,22 +79,22 @@ namespace Pisicu{
 
                 for (int i = 0; i < stroke; i++){
                     if (ul) { sb.Draw(Game1.corner_ul, new Rectangle((int)x + i , (int)y + i , (int)rad, (int)rad), stroke_color); } //CORNER UP LEFT
-                    else { sb.Draw(Game1.point, new Rectangle((int)x, (int)y, (int)rad, (int)rad), stroke_color); }
+                    else { sb.Draw(Game1.stroke_ul, new Rectangle((int)x + i, (int)y + i, (int)rad, (int)rad), stroke_color); }
                 }
 
                 for (int i = 0; i < stroke; i++){
                     if (ur) { sb.Draw(Game1.corner_ur, new Rectangle((int)(x + w - rad) - i, (int)y + i, (int)rad, (int)rad), stroke_color); } //CORNER UP RIGHT
-                    else { sb.Draw(Game1.point, new Rectangle((int)(x + w - rad), (int)y, (int)rad, (int)rad), stroke_color); }
+                    else { sb.Draw(Game1.stroke_ur, new Rectangle((int)(x + w - rad) - i, (int)y + i, (int)rad, (int)rad), stroke_color); }
                 }
 
                 for (int i = 0; i < stroke; i++){
                     if (dl) { sb.Draw(Game1.corner_dl, new Rectangle((int)x + i, (int)(y + h - rad) - i, (int)rad, (int)rad), stroke_color); } //CORNER DOWN LEFT
-                    else { sb.Draw(Game1.point, new Rectangle((int)x, (int)(y + h - rad), (int)rad, (int)rad), stroke_color); }
+                    else { sb.Draw(Game1.stroke_dl, new Rectangle((int)x + i, (int)(y + h - rad) - i, (int)rad, (int)rad), stroke_color); }
                 }
 
                 for (int i = 0; i < stroke; i++){
                     if (dr) { sb.Draw(Game1.corner_dr, new Rectangle((int)(x + w - rad) - i, (int)(y + h - rad) - i, (int)rad, (int)rad), stroke_color); } //CORNER DOWN RIGHT
-                    else { sb.Draw(Game1.point, new Rectangle((int)(x + w - rad), (int)(y + h - rad), (int)rad, (int)rad), stroke_color); }
+                    else { sb.Draw(Game1.stroke_dr, new Rectangle((int)(x + w - rad) - i, (int)(y + h - rad) - i, (int)rad, (int)rad), stroke_color); }
                 }
                  
 
