@@ -91,6 +91,7 @@
     <Compile Include="ScreenHome.cs" />
     <Compile Include="ScreenLoad.cs" />
     <Compile Include="ScreenLogin.cs" />
+    <Compile Include="ScreenRegister.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="TextBox.cs" />
   </ItemGroup>

@@ -31,6 +31,7 @@ namespace Pisicu{
         public static ScreenGame screen_game;
         public static ScreenFinish screen_finish;
         public static ScreenLogin screen_login;
+        public static ScreenRegister screen_register;
 
         public static string[] question = {"Cuando nacio Albert Einstein","1920","1921","1910"};
 
@@ -46,6 +47,8 @@ namespace Pisicu{
                 screen_finish.draw(sb);
             }else if(SCREEN == Screen.LOGIN) {
                 screen_login.draw(sb);
+            }else if(SCREEN == Screen.REGISTER) {
+                screen_register.draw(sb);
             }
 
             foreach(Button b in buttons){
@@ -112,6 +115,8 @@ namespace Pisicu{
                 screen_finish.update();
             }else if(SCREEN == Screen.LOGIN) {
                 screen_login.update(ref ws);
+            }else if(SCREEN == Screen.REGISTER) {
+                screen_register.update(ref ws);
             }
         }
 
@@ -148,6 +153,8 @@ namespace Pisicu{
                 screen_finish = new ScreenFinish();
             }else if(SCREEN == Screen.LOGIN) {
                 screen_login = new ScreenLogin();
+            }else if(SCREEN == Screen.REGISTER) {
+                screen_register = new ScreenRegister();
             }
 
             ScreenController.SCREEN = SCREEN;

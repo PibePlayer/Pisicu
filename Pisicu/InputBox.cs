@@ -123,13 +123,13 @@ namespace Pisicu{
 
                 str = (kb.IsCompleted) ? kb.Result ?? str : str;
                 centerText();
-                text.str = (label != "Password") ? str : new StringBuilder().Append('*', str.Length).ToString();
+                text.str = (label != "Contraseña") ? str : new StringBuilder().Append('*', str.Length).ToString();
             }
         }
 
         public void write() {
 
-            kb = KeyboardInput.Show(label, "", text.str, (label == "Password"));
+            kb = KeyboardInput.Show(label, "", text.str, (label == "Contraseña"));
         }
     }
 }

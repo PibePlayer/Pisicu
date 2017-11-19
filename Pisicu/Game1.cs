@@ -68,14 +68,14 @@ namespace Pisicu{
             base.Initialize();
 
             sc = new ScreenController();
-            ScreenController.set(Screen.LOAD);
+            ScreenController.set(Screen.HOME);
             
         }
 
         protected override void LoadContent() {
 
-            IO.Options op = new IO.Options(){AutoConnect = false};
-            ws = IO.Socket("http://192.168.0.12:8080", op);
+            IO.Options op = new IO.Options(){AutoConnect = true};
+            ws = IO.Socket("http://192.168.0.16:8080", op);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -98,9 +98,17 @@ namespace Pisicu{
             stroke_dr = Content.Load<Texture2D>("stroke_dr");
 
             /*****************I'M GOING TO BUILD A WALL, AND MEXICO WILL PAY FOR IT*******************/
+            #region Connection
+
 
             ws.On(Socket.EVENT_CONNECT, () => {
                 output = "Connected";
+                ScreenController.set(Screen.HOME);
+            });
+
+            ws.On("success", (data) => {
+
+                output = "Registered!";
                 ScreenController.set(Screen.LOGIN);
             });
 
@@ -121,6 +129,7 @@ namespace Pisicu{
                 ScreenController.set(Screen.FINISH);
             });
 
+            #endregion
             /***************************************** THE WALL **************************************/
 
         }

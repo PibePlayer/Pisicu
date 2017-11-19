@@ -18,13 +18,16 @@ namespace Pisicu {
 
     public class ScreenHome {
 
-        Button start;
+        Button login;
+        Button register;
 
         public ScreenHome() {
 
-            start = new Button("Iniciar",Game1.WIDTH * 0.25f,400,Game1.WIDTH * 0.5f,100);
+            login = new Button("Ingresar", 0, 0.35f, 0.7f, 0.1f).centerX().setColor(ColorBank.alizarin).setRadius(50, true);
+            register = new Button("Registrarse", 0, 0.65f, 0.7f, 0.1f).centerX().setColor(ColorBank.alizarin).setRadius(50, true);
 
-            ScreenController.buttons.Add(start);
+            ScreenController.buttons.Add(login);
+            ScreenController.buttons.Add(register);
         }
 
         public void draw(SpriteBatch sb) {
@@ -33,8 +36,12 @@ namespace Pisicu {
 
         public void update() {
 
-            if(start.touch) {
-                ScreenController.set(Screen.LOAD);
+            if(login.touch) {
+                ScreenController.set(Screen.LOGIN);
+            }
+
+            if(register.touch) {
+                ScreenController.set(Screen.REGISTER);
             }
         }
     }

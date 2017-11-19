@@ -67,6 +67,14 @@ namespace Pisicu{
             return this;
         }
 
+        public Button setRadius(int rad, bool all) {
+            
+            this.rad = rad;
+            block.setCorners(all, all, all, all);
+
+            return this;
+        }
+
         public Button setStroke(int stroke,Color stroke_color) {
 
             solid = false;
