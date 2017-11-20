@@ -72,6 +72,12 @@ namespace Pisicu{
 
             block = new Block();
 
+            this.str = "";
+
+            float xx = x + 10;
+            float yy = y + 10;
+
+            text = new Text(str, xx, yy);
             this.img = img;
         }
 
@@ -110,6 +116,9 @@ namespace Pisicu{
             color = (touch) ? new Color(color.R, color.G, color.B) : color;
 
             block.draw(sb,solid, x, y, w, h, rad, color);
+
+            if(img != null){sb.Draw(img, new Rectangle((int) (x + rad / 2), (int) (y + rad / 2), (int) (w - rad), (int) (h - rad)), Color.White);}
+
             text.draw(sb);
         }
 

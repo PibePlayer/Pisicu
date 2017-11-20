@@ -66,6 +66,10 @@ namespace Pisicu{
             return this;
         }
 
+        public TextBox setRadius(int rad, bool all){
+            return setRadius(rad, all, all, all, all);
+        }
+
         public TextBox setStroke(int stroke,Color stroke_color) {
                     
             solid = true;

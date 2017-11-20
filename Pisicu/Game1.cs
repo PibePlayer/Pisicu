@@ -40,6 +40,8 @@ namespace Pisicu{
         public static Texture2D stroke_ur;
         public static Texture2D stroke_dr;
         public static Texture2D stroke_dl;
+
+        public static Texture2D icon_activity;
         
         public static string output = "-";
 
@@ -75,7 +77,7 @@ namespace Pisicu{
         protected override void LoadContent() {
 
             IO.Options op = new IO.Options(){AutoConnect = true};
-            ws = IO.Socket("http://192.168.0.16:8080", op);
+            ws = IO.Socket("http://192.168.0.12:8081", op);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -97,6 +99,8 @@ namespace Pisicu{
             stroke_dl = Content.Load<Texture2D>("stroke_dl");
             stroke_dr = Content.Load<Texture2D>("stroke_dr");
 
+            icon_activity = Content.Load<Texture2D>("icon_activity");
+
             /*****************I'M GOING TO BUILD A WALL, AND MEXICO WILL PAY FOR IT*******************/
             #region Connection
 
@@ -110,13 +114,25 @@ namespace Pisicu{
                 System.Console.WriteLine("Data:" + data);
                 if ((bool)data){
                     output = "Registered!";
+                    ScreenController.set(Screen.LOGIN);
+                }else{
+                    output = "Error en el Registro";
                 }
-                ScreenController.set(Screen.LOGIN);
             });
 
             ws.On("logged", (data) => {
-                output = "Logged";
-                ScreenController.set(Screen.HALL);
+                output = data.ToString();
+                if ((bool)data){
+                    ScreenController.set(Screen.HALL);
+                }
+            });
+
+            ws.On("profile", (data) => {
+                var Json = data as JToken;
+
+                //User.id = Json.Value<int>("id");
+                User.name = Json.Value<string>("name");
+                output = "@" +  User.name;
             });
 
             ws.On("text", (data) => {
@@ -159,7 +175,7 @@ namespace Pisicu{
 
             spriteBatch.Begin();
 
-                spriteBatch.DrawString(font, output, new Vector2(50, 50), Color.Black);
+                spriteBatch.DrawString(font, output, new Vector2(50, 200), ColorBank.clouds);
                 sc.draw(spriteBatch);
 
             spriteBatch.End();

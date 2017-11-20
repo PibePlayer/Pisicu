@@ -53,15 +53,19 @@ namespace Pisicu{
 
         public void update(ref Socket ws) {
 
+        if(GamePad.GetState(0).IsButtonDown(Buttons.Back)){
+            ScreenController.set(Screen.HOME);
+        };
+
             if(login.touch) {
 
                 login.touch = false;
 
-                ws.Emit("login", "asd", "123"); // JAJAJAJA
-
-                /*if (user.str != "" && pass.str != ""){
+                if (user.str != "" && pass.str != ""){
                     ws.Emit("login",user.str,pass.str);
-                }*/
+                }else{
+                    ws.Emit("login", "asd", "123");
+                }
             }
         }
     }

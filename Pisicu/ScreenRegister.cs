@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 using Quobject.SocketIoClientDotNet.Client;
 
@@ -48,6 +49,10 @@ namespace Pisicu
         }
 
         public void update(ref Socket ws) {
+
+            if(GamePad.GetState(0).IsButtonDown(Buttons.Back)){
+                ScreenController.set(Screen.HOME);
+            };
 
             if(register.touch) {
 

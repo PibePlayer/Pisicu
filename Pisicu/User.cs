@@ -13,7 +13,7 @@ using Android.Widget;
 namespace Pisicu{
 
     public class User{
-
-        public static string user;
+        public static int id;
+        public static string name;
     }
 }
