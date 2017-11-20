@@ -40,6 +40,8 @@ namespace Pisicu{
         public Block block;
         public bool solid = true;
 
+        public Texture2D img;
+
         public Button(string str, float x, float y, float w, float h){
 
             this.x = Game1.WIDTH * x;
@@ -57,6 +59,20 @@ namespace Pisicu{
 
             text = new Text(str, xx, yy);
             block = new Block();
+        }
+        public Button(Texture2D img, float x, float y, float w, float h){
+
+            this.x = Game1.WIDTH * x;
+            this.y = Game1.HEIGHT * y;
+
+            this.w = Game1.WIDTH * w;
+            this.h = Game1.HEIGHT * h;
+
+            color = ColorBank.turquoise;
+
+            block = new Block();
+
+            this.img = img;
         }
 
         public Button setRadius(int rad, bool ul, bool ur, bool dr, bool dl) {

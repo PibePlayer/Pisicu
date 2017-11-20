@@ -88,12 +88,14 @@
     <Compile Include="ScreenController.cs" />
     <Compile Include="ScreenFinish.cs" />
     <Compile Include="ScreenGame.cs" />
+    <Compile Include="ScreenHall.cs" />
     <Compile Include="ScreenHome.cs" />
     <Compile Include="ScreenLoad.cs" />
     <Compile Include="ScreenLogin.cs" />
     <Compile Include="ScreenRegister.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="TextBox.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Content\font\font.xnb" />

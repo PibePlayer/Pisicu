@@ -107,9 +107,16 @@ namespace Pisicu{
             });
 
             ws.On("success", (data) => {
-
-                output = "Registered!";
+                System.Console.WriteLine("Data:" + data);
+                if ((bool)data){
+                    output = "Registered!";
+                }
                 ScreenController.set(Screen.LOGIN);
+            });
+
+            ws.On("logged", (data) => {
+                output = "Logged";
+                ScreenController.set(Screen.HALL);
             });
 
             ws.On("text", (data) => {
