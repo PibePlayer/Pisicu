@@ -68,7 +68,7 @@ namespace Pisicu{
             base.Initialize();
 
             sc = new ScreenController();
-            ScreenController.set(Screen.HOME);
+            ScreenController.set(Screen.LOAD);
             
         }
 
