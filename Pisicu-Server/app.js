@@ -11,10 +11,9 @@ cad = f.getHours() + ":" + f.getMinutes() + ":" + f.getSeconds();
 /************************************************************************/
 
 var Activities = [{
-    "name": "test",
-    "pass": "123",
+    "ID": "ASD123",
     "questions": [{
-        "q": "Cuál es el mejor nombre?",
+        "q": "Cuál es el nombre mas piola?",
         "op0": "Humberto Canabrio",
         "op1": "José Antonio",
         "op2": "Gregorio Antonia",
@@ -95,9 +94,9 @@ io.on('connection',function(socket) {
 			socket.emit('profile', {"name": username})
 			socket.emit('logged', true);
 
-  socket.on('join', function(name, pass){
+  socket.on('join', function(ID){
     if(Activities.find(function(activity){
-      activity.name == name && activity.pass == pass}))
+      activity.ID == ID}))
   });
 
 		}
