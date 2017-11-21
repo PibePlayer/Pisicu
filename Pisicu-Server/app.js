@@ -10,6 +10,18 @@ cad = f.getHours() + ":" + f.getMinutes() + ":" + f.getSeconds();
 
 /************************************************************************/
 
+var Activities = [{
+    "name": "test",
+    "pass": "123",
+    "questions": [{
+        "q": "Cuál es el mejor nombre?",
+        "op0": "Humberto Canabrio",
+        "op1": "José Antonio",
+        "op2": "Gregorio Antonia",
+        "op3": "Mirtha Legrand"
+    }]
+}]
+
 var users = JSON.parse(fs.readFileSync("users.json", "utf8"));
 
 /*
@@ -82,6 +94,12 @@ io.on('connection',function(socket) {
 		}) != undefined){
 			socket.emit('profile', {"name": username})
 			socket.emit('logged', true);
+
+  socket.on('join', function(name, pass){
+    if(Activities.find(function(activity){
+      activity.name == name && activity.pass == pass}))
+  });
+
 		}
 
 		/*socket.emit('text',question[0]);
