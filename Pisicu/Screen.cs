@@ -12,6 +12,6 @@ using Android.Widget;
 
 namespace Pisicu{
 
-  public enum Screen {HOME, GAME, LOAD, FINISH, LOGIN, REGISTER,HALL,ACTIVITY}
+  public enum Screen {HOME, GAME, LOAD, FINISH, LOGIN, REGISTER,HALL,ACTIVITY,JOIN_ACTIVITY,CREATE_ACTIVITY}
 
 }

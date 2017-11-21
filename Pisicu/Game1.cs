@@ -44,6 +44,7 @@ namespace Pisicu{
         public static Texture2D icon_activity;
         
         public static string output = "-";
+        public static string output2 = "--";
 
         ScreenController sc;
 
@@ -135,7 +136,7 @@ namespace Pisicu{
                 output = "@" +  User.name;
             });
 
-            ws.On("text", (data) => {
+            /*ws.On("text", (data) => {
 
                 var Json = data as JToken;
                 output = "Loading Question";
@@ -143,6 +144,22 @@ namespace Pisicu{
                 ScreenController.setQuestion(
                     Json.Value<string>("q"), Json.Value<string>("op1"),
                     Json.Value<string>("op2"), Json.Value<string>("op3")
+                );
+
+                ScreenController.set(Screen.GAME);
+            });*/
+
+            ws.On("question", (data) => {
+                var Jarray = data as JArray;
+                ScreenGame.questions = Jarray;
+
+                output = Jarray.Count.ToString();
+                var Json = Jarray.First;
+
+                ScreenController.setQuestion(
+                    Json.Value<string>("q"), Json.Value<string>("op0"),
+                    Json.Value<string>("op1"), Json.Value<string>("op2"), 
+                    Json.Value<string>("op3")
                 );
 
                 ScreenController.set(Screen.GAME);
@@ -175,8 +192,9 @@ namespace Pisicu{
 
             spriteBatch.Begin();
 
-                spriteBatch.DrawString(font, output, new Vector2(50, 200), ColorBank.clouds);
                 sc.draw(spriteBatch);
+                spriteBatch.DrawString(font, output, new Vector2(50, 200), ColorBank.clouds);
+                spriteBatch.DrawString(font, output2, new Vector2(50, Game1.HEIGHT - 100), ColorBank.clouds);
 
             spriteBatch.End();
 

@@ -34,6 +34,8 @@ namespace Pisicu{
         public static ScreenRegister screen_register;
         public static ScreenHall screen_hall;
         public static ScreenActivity screen_activity;
+        public static ScreenJoinActivity screen_join_activity;
+        public static ScreenCreateActivity screen_create_activity;
 
         public static string[] question = {"Cuando nacio Albert Einstein","1920","1921","1910"};
 
@@ -55,6 +57,10 @@ namespace Pisicu{
                 screen_hall.draw(sb);
             }else if(SCREEN == Screen.ACTIVITY) {
                 screen_activity.draw(sb);
+            }else if(SCREEN == Screen.JOIN_ACTIVITY) {
+                screen_join_activity.draw(sb);
+            }else if(SCREEN == Screen.CREATE_ACTIVITY) {
+                screen_create_activity.draw(sb);
             }
 
             foreach(Button b in buttons){
@@ -78,6 +84,8 @@ namespace Pisicu{
 
                 float tx = touch[0].Position.X;
                 float ty = touch[0].Position.Y;
+
+                Game1.output2 = "X: " + Math.Round(touch[0].Position.X / Game1.WIDTH,3) + " | Y: " + Math.Round(touch[0].Position.Y / Game1.HEIGHT,3);
 
                 if (touch[0].State == TouchLocationState.Pressed){
                     
@@ -127,12 +135,16 @@ namespace Pisicu{
                 screen_hall.update(ref ws);
             }else if(SCREEN == Screen.ACTIVITY) {
                 screen_activity.update(ref ws);
+            }else if(SCREEN == Screen.JOIN_ACTIVITY) {
+                screen_join_activity.update(ref ws);
+            }else if(SCREEN == Screen.CREATE_ACTIVITY) {
+                screen_create_activity.update(ref ws);
             }
         }
 
         public static void setQuestion(params string[] q) {
 
-            question = new string[]{q[0], q[1], q[2], q[3]};
+            question = new string[]{q[0], q[1], q[2], q[3], q[4]};
         }
 
         public static void add(Button b) {
@@ -156,7 +168,7 @@ namespace Pisicu{
             if(SCREEN == Screen.HOME) {
                 screen_home = new ScreenHome();
             }else if(SCREEN == Screen.GAME) {
-                screen_game = new ScreenGame(question[0], question[1], question[2], question[3]);
+                screen_game = new ScreenGame(question[0], question[1], question[2], question[3], question[4]);
             }else if(SCREEN == Screen.LOAD) {
                 screen_load = new ScreenLoad();
             }else if(SCREEN == Screen.FINISH) {
@@ -169,6 +181,10 @@ namespace Pisicu{
                 screen_hall = new ScreenHall();
             }else if(SCREEN == Screen.ACTIVITY) {
                 screen_activity = new ScreenActivity();
+            }else if(SCREEN == Screen.JOIN_ACTIVITY) {
+                screen_join_activity = new ScreenJoinActivity();
+            }else if(SCREEN == Screen.CREATE_ACTIVITY) {
+                screen_create_activity = new ScreenCreateActivity();
             }
 
             ScreenController.SCREEN = SCREEN;

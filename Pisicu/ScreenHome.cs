@@ -23,7 +23,7 @@ namespace Pisicu {
 
         public ScreenHome() {
 
-            login = new Button("Ingresar", 0, 0.35f, 0.7f, 0.1f).centerX().setColor(ColorBank.alizarin).setRadius(50, true);
+            login = new Button("Ingresar", 0, 0.535f, 0.7f, 0.1f).centerX().setColor(ColorBank.alizarin).setRadius(50, true);
             register = new Button("Registrarse", 0, 0.65f, 0.7f, 0.1f).centerX().setColor(ColorBank.alizarin).setRadius(50, true);
 
             ScreenController.buttons.Add(login);

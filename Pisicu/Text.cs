@@ -22,14 +22,14 @@ namespace Pisicu{
         public float x;
         public float y;
 
-        public float scale = Game1.HEIGHT / 2100;
+        public float scale = Game1.HEIGHT / 2300f;
 
         public Text(string str, float x, float y){
             
             this.str = str;
 
-            this.x = x;
             this.y = y;
+            this.x = x;
         }
 
         public void draw(SpriteBatch sb){

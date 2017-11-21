@@ -11,10 +11,17 @@ cad = f.getHours() + ":" + f.getMinutes() + ":" + f.getSeconds();
 /************************************************************************/
 
 var Activities = [{
-    "ID": "ASD123",
+    "id": "ASD123",
     "questions": [{
         "q": "Cuál es el nombre mas piola?",
         "op0": "Humberto Canabrio",
+        "op1": "José Antonio",
+        "op2": "Gregorio Antonia",
+        "op3": "Mirtha Legrand"
+    },
+    {
+        "q": "Cuál es el siguiente nombre más pioa?",
+        "op0": "José Arcadio Buendia",
         "op1": "José Antonio",
         "op2": "Gregorio Antonia",
         "op3": "Mirtha Legrand"
@@ -33,6 +40,8 @@ console.log(JSON.stringify(users));
 
 */
 
+console.log(Math.random().toString(36).substring(2, 7).toUpperCase());
+
 function updatedb() {
 
 	fs.writeFile("users.json", JSON.stringify(users), function(err) {
@@ -44,6 +53,7 @@ function updatedb() {
 
 /************************************************************************/
 
+/*** xDDDD
 var conn = mysql.createConnection({
 
   host: "localhost",
@@ -51,6 +61,7 @@ var conn = mysql.createConnection({
   password: "",
   database: "pisicu"
 });
+*/
 
 app.use(express.static('public'));
 
@@ -91,13 +102,28 @@ io.on('connection',function(socket) {
 		if(users.find(function (user){
 		  return user.name == username && user.pass == pass;
 		}) != undefined){
+
 			socket.emit('profile', {"name": username})
 			socket.emit('logged', true);
 
-  socket.on('join', function(ID){
-    if(Activities.find(function(activity){
-      activity.ID == ID}))
-  });
+			socket.on('add', function(questions){
+				Activities.push({
+					"name": Math.random().toString(36).substring(2, 7).toUpperCase(),
+					"questions": questions
+			});
+			})
+
+	  		socket.on('join', function(id){
+
+	  			console.log(id);
+
+	  			var activity = Activities.find(function(activitytmp){return activitytmp.id == id});
+
+			    if(activity != undefined){
+			    	console.log("True");
+			    	socket.emit('question', activity.questions);
+			    }
+			  	});
 
 		}
 
@@ -133,6 +159,7 @@ server.listen(8081,function() {
 	console.log("La magia ocurre en 8081 "  +  cad);
 });
 
+/****** CUANDO HACES CÓDIGO QUE NO SIRVE...
 function query(conn) {
 
 	conn.connect(function(err) {
@@ -150,7 +177,8 @@ function insert(conn,name,pass){
 		if (err) throw err;
 		conn.query("INSERT INTO users (name,pass) VALUES ('" + name + "','" + pass + "')",function(err,result) {
 			if (err) throw err;
-			console.log("se incerto un dato");
+			console.log("se inzerto un dato");
 		});
 	});
 }
+*/

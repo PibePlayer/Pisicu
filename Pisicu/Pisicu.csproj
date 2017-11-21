@@ -87,10 +87,12 @@
     <Compile Include="Screen.cs" />
     <Compile Include="ScreenActivity.cs" />
     <Compile Include="ScreenController.cs" />
+    <Compile Include="ScreenCreateActivity.cs" />
     <Compile Include="ScreenFinish.cs" />
     <Compile Include="ScreenGame.cs" />
     <Compile Include="ScreenHall.cs" />
     <Compile Include="ScreenHome.cs" />
+    <Compile Include="ScreenJoinActivity.cs" />
     <Compile Include="ScreenLoad.cs" />
     <Compile Include="ScreenLogin.cs" />
     <Compile Include="ScreenRegister.cs" />

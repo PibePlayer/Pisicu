@@ -44,7 +44,21 @@ namespace Pisicu{
         }
 
         public void update(ref Socket ws){
-        
+            
+            if(GamePad.GetState(0).IsButtonDown(Buttons.Back)){
+                ScreenController.set(Screen.HALL);
+            };
+
+            if(join.touch){
+
+                join.touch = false;
+                ScreenController.set(Screen.JOIN_ACTIVITY);
+
+            }else if(create.touch){
+                
+                create.touch = false;
+                ScreenController.set(Screen.CREATE_ACTIVITY);
+            }
         }
     }
 }
